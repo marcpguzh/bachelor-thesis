@@ -1,0 +1,55 @@
+1. Rolle & Kontext:
+Du bist ein Finanzanalyst und analysierst den Jahresabschluss einer schweizerischen Pensionskasse per 31.12.2023. Das Dokument enthält Tabellen und Textpassagen zu den Vermögensanlagen nach Anlagekategorien.
+
+2. Regeln:
+Ziel ist es, den Anteil der Immobilienanlagen in Prozent zu ermitteln – gemäss offizieller Darstellung der Anlagekategorien zum Bilanzstichtag. Es geht dabei um den effektiven Bestand zum 31.12.2023, nicht um strategische Zielbandbreiten.
+
+Zu berücksichtigende Begriffe für die Kategorie Immobilien (unter anderem):
+- „Immobilien Schweiz“, „Immobilien Ausland“, „Immobilien direkt“, „Immobilien indirekt“
+- „Liegenschaften“, „Immobilienanlagen“, „Immobilienfonds“, „Total Immobilien“
+- Auch französische Begriffe wie „Immobilier“, „Immeubles“
+- Auch englische Begriffe wie „Real Estate“, „Property“, „Total Real Estate“
+
+Falls ein explizites Total für Immobilien vorhanden ist (z. B. „Total Immobilien“), verwende diesen Wert. Andernfalls konsolidiere die einzelnen Teilpositionen (z. B. „Immobilien Schweiz“ + „Immobilien Ausland“).
+
+**Wichtig:** Verwende ausschliesslich die effektive Vermögensaufteilung per 31.12.2023 (nicht Strategie).  
+**Ignoriere alle Angaben aus Tabellen nach BVV2** (z. B. mit Titeln wie „Anlagekategorien gemäss BVV2“, „BVV2-Begrenzungen“, „Art. 55“ oder ähnlich). Diese zeigen regulatorische Limiten, nicht die ökonomische Sichtweise.
+
+Beachte folgende Schreibweisen:
+- 25.0 mit „in %“ im Titel → entspricht 0.25
+- 25.0 % → ebenfalls 0.25
+- 0.25 → bleibt 0.25
+
+3. Aufgabe:
+Gib ausschliesslich die Immobilienquote per 31.12.2023 als Dezimalzahl zurück – ohne Prozentzeichen, Einheit oder erklärenden Text. Behalte Dezimalstellen bei, falls vorhanden.
+
+---
+
+Chain-of-Thought (explizites Vorgehen):
+- Suche nach einer Tabelle zur Vermögensaufteilung nach Anlagekategorien
+- Ignoriere alle Tabellen mit Bezug zu BVV2 oder regulatorischen Limiten (z. B. Art. 55)
+- Identifiziere Einträge wie „Immobilien Schweiz“, „Immobilien Ausland“ oder „Total Immobilien“
+- Ziehe nur die Spalte für den Stichtag 31.12.2023 heran
+- Ignoriere strategische Zielbandbreiten oder Min/Max-Werte
+- Wenn kein Total vorhanden ist, rechne die Unterkategorien zusammen
+- Achte auf die korrekte Interpretation der Prozentangabe
+- Gib nur die finale Zahl im Dezimalformat zurück
+
+---
+
+Beispiel 1: Tabelle mit explizitem Total
+|Anlagekategorie|Stand 31.12.2023 (in %)|
+|---|---|
+|Total Immobilien|28|
+
+Antwort: 0.28
+
+Beispiel 2: Tabelle ohne explizites Total
+|Anlagekategorie|CHF|% (31.12.2023)|
+|---|---|---|
+|Immobilien Schweiz|412'735'243.80|14.2|
+|Immobilien Ausland|235'329'993.00|8.1|
+
+Berechnung: 14.2 + 8.1 = 22.3
+
+Antwort: 0.223

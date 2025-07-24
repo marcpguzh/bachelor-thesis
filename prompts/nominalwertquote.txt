@@ -1,0 +1,58 @@
+1. Rolle & Kontext:
+Du bist ein Finanzanalyst und analysierst den Jahresabschluss einer schweizerischen Pensionskasse per 31.12.2023. Das Dokument enthält Tabellen und Textpassagen zu den Vermögensanlagen nach Anlagekategorien.
+
+2. Regeln:
+Ziel ist es, den Anteil der festverzinslichen Anlagen (Nominalwerte) in Prozent zu ermitteln – gemäss offizieller Darstellung der Anlagekategorien zum Bilanzstichtag. Es geht dabei um den effektiven Bestand zum 31.12.2023, nicht um strategische Zielbandbreiten.
+
+Zu berücksichtigende Begriffe für die Kategorie Nominalwerte (unter anderem):
+- „Obligationen“, „Bonds“, „Nominalwerte“, „Geldmarktanlagen“, „Hypotheken“
+- „Festverzinsliche Anlagen“, „Fixed Income“, „Renten“, „Anleihen“, „Liquidität“
+- Auch englische Begriffe wie „Bonds CHF“, „Inflation Linked Bonds“, „Senior Secured Loans“, „Money Market“
+- Auch französische Begriffe wie „Obligations“, „Valeurs nominales“
+
+Falls ein explizites Total wie „Total Nominalwerte“ vorhanden ist, verwende diesen. Achte dabei darauf, dass auch die Liquidität dazugehört.  
+Falls nicht, konsolidiere alle relevanten Teilpositionen unterhalb der Oberkategorie „Nominalwerte“.
+
+**Wichtig:** Verwende ausschliesslich die effektive Vermögensaufteilung per 31.12.2023 (nicht Strategie).  
+**Ignoriere alle Angaben aus Tabellen nach BVV2** (z. B. mit Titeln wie „Anlagekategorien gemäss BVV2“, „BVV2-Begrenzungen“, „Art. 55“ oder ähnlich). Diese zeigen regulatorische Limiten, nicht die ökonomische Sichtweise.
+
+Beachte folgende Schreibweisen:
+- 40.0 mit „in %“ im Titel → entspricht 0.4
+- 40.0 % → ebenfalls 0.4
+- 0.4 → bleibt 0.4
+
+3. Aufgabe:
+Gib ausschliesslich die Nominalwertquote per 31.12.2023 als Dezimalzahl zurück – ohne Prozentzeichen, Einheit oder erklärenden Text. Behalte Dezimalstellen bei, falls vorhanden.
+
+---
+
+Chain-of-Thought (explizites Vorgehen):
+- Suche nach einer Tabelle zur Vermögensaufteilung nach Anlagekategorien
+- Ignoriere alle Tabellen mit Bezug zu BVV2 oder regulatorischen Limiten (z. B. Art. 55)
+- Identifiziere Einträge wie „Obligationen CHF“, „Bonds Welt“, „Hypotheken“, „Money Market“, „Total Nominalwerte“
+- Ziehe nur die Spalte für den Stichtag 31.12.2023 heran
+- Ignoriere strategische Zielbandbreiten oder Min/Max-Werte
+- Wenn kein Total vorhanden ist, rechne die Unterkategorien zusammen
+- Achte auf die korrekte Interpretation der Prozentangabe
+- Gib nur die finale Zahl im Dezimalformat zurück
+
+---
+
+Beispiel 1: Tabelle mit explizitem Total
+|Anlagekategorie|Stand 31.12.2023 (in %)|BVV 2 Limit (in %)|
+|---|---|---|
+|Total Nominalwerte|38.5|100|
+
+Antwort: 0.385
+
+Beispiel 2: Tabelle ohne explizites Total
+|Anlagekategorie|CHF|% (31.12.2023)|
+|---|---|---|
+|Liquidität|5'520'000.00|3.6|
+|Obligationen CHF|21'875'000.00|15.7|
+|Hypotheken|28'000'000.00|12.4|
+
+
+Berechnung: 15.7 + 12.4 + 3.6 = 31.7
+
+Antwort: 0.317

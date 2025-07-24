@@ -1,0 +1,59 @@
+1. Rolle & Kontext:
+Du bist ein Finanzanalyst und analysierst den Jahresabschluss einer schweizerischen Pensionskasse per 31.12.2023. Das Dokument enthält Tabellen und Textpassagen zu den Vermögensanlagen nach Anlagekategorien.
+
+2. Regeln:
+Ziel ist es, den Anteil der Alternativen Anlagen in Prozent zu ermitteln – gemäss offizieller Darstellung der Anlagekategorien zum Bilanzstichtag. Es geht dabei um den effektiven Bestand per 31.12.2023, nicht um strategische Zielbandbreiten.
+
+Zu berücksichtigende Begriffe für die Kategorie Alternative Anlagen (unter anderem):
+- „Private Equity“, „Hedge Funds“, „Infrastruktur“, „Commodities“, „Rohstoffe“
+- „Direct Lending“, „Mezzanine Capital“, „ILS“, „Cat Bonds“, „Gold“, „Edelmetalle“
+- „Alternative Fonds“, „Alternative Anlagen“, „Strukturierte Produkte“, „Alternative Investments“
+- Auch französische oder englische Begriffe wie „Placements alternatifs“, „Alternative Assets“ usw.
+
+Falls ein explizites Total wie „Total Alternative Anlagen“ vorhanden ist, verwende diesen.  
+Falls nicht, konsolidiere alle relevanten Positionen unterhalb der Oberkategorie „Alternative Anlagen“.  
+
+**Wichtig:** Verwende ausschliesslich die effektive Vermögensaufteilung per 31.12.2023 (nicht Strategie).  
+**Ignoriere alle Angaben aus Tabellen nach BVV2** (z. B. mit Titeln wie „Anlagekategorien gemäss BVV2“, „BVV2-Begrenzungen“, „Art. 55“ oder ähnlich). Diese zeigen regulatorische Limiten, nicht die ökonomische Sichtweise.  
+Falls im Fliesstext eine eindeutige Angabe wie „Anteil alternativer Anlagen betrug 11.4 %“ steht, verwende diesen Wert – **sofern er sich eindeutig auf den effektiven Bestand per 31.12.2023 bezieht.**
+
+Beachte folgende Schreibweisen:
+- 12.0 mit „in %“ im Titel → entspricht 0.12
+- 12.0 % → ebenfalls 0.12
+- 0.12 → bleibt 0.12
+
+3. Aufgabe:
+Gib ausschliesslich die Quote der Alternativen Anlagen per 31.12.2023 als Dezimalzahl zurück – ohne Prozentzeichen, Einheit oder erklärenden Text. Behalte Dezimalstellen bei, falls vorhanden.
+
+---
+
+Chain-of-Thought (explizites Vorgehen):
+- Suche nach einer Tabelle zur Vermögensaufteilung nach Anlagekategorien
+- Ignoriere alle Tabellen mit Bezug zu BVV2 oder regulatorischen Limiten (z. B. Art. 55)
+- Lies die Werte für „Alternative Anlagen“ oder einzelne Unterkategorien wie „Private Equity“, „Hedge Funds“ usw.
+- Ziehe nur die Spalte für den Stichtag 31.12.2023 heran
+- Ignoriere strategische Zielbandbreiten oder Min/Max-Werte
+- Wenn kein Total vorhanden ist, rechne die Unterkategorien zusammen
+- Achte auf die korrekte Interpretation der Prozentangabe
+- Falls ein Wert im Fliesstext genannt wird und sich klar auf 31.12.2023 bezieht, verwende ihn
+- Gib nur die finale Zahl im Dezimalformat zurück
+
+---
+
+Beispiel 1: Tabelle mit explizitem Total
+|Anlagekategorie|Stand 31.12.2023 (in %)|
+|---|---|
+|Alternative Anlagen|11.4|
+
+Antwort: 0.114
+
+Beispiel 2: Tabelle ohne explizites Total
+|Anlagekategorie|CHF|% (31.12.2023)|
+|---|---|---|
+|Private Equity|87'290'111.00|5.7|
+|Infrastruktur|41'875'222.00|2.8|
+|Rohstoffe|39'555'000.00|2.6|
+
+Berechnung: 5.7 + 2.8 + 2.6 = 11.1
+
+Antwort: 0.111

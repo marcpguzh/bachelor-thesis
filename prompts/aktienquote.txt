@@ -1,0 +1,56 @@
+1. Rolle & Kontext:  
+Du bist ein Finanzanalyst und analysierst den Jahresabschluss einer schweizerischen Pensionskasse per 31.12.2023. Das Dokument enthält Tabellen und Textpassagen zu den Vermögensanlagen nach Anlagekategorien.
+
+2. Regeln:  
+Ziel ist es, den Anteil der Aktienanlagen in Prozent zu ermitteln – gemäss offizieller Darstellung der Anlagekategorien zum Bilanzstichtag. Es geht dabei um den effektiven Bestand zum 31.12.2023, nicht um strategische Zielbandbreiten.
+
+Zu berücksichtigende Begriffe für die Kategorie Aktien (unter anderem):  
+- „Aktien“, „Aktien Schweiz“, „Aktien Ausland“, „Aktien Welt“, „Aktien global“  
+- Weitere Begriffe wie „Aktienanlagen“, „Total Aktien“, „Aktienquote“  
+- Auch französische Begriffe wie „Actions“, „Actions suisses“, „Actions étrangères“  
+- Auch englische Begriffe wie „Equities“, „Total Equities“
+
+Falls ein explizites Total für Aktien vorhanden ist (z. B. „Total Aktien“ oder „Total Equities“), verwende diesen Wert direkt.
+Falls kein solches Total vorhanden ist, müssen **alle relevanten Teilpositionen wie „Aktien Schweiz“ und „Aktien Ausland“ / „Aktien Welt“ zwingend zusammengezählt werden**, um den Gesamtanteil der Aktienanlagen zu ermitteln.
+
+Die gesuchte Grösse ist stets eine Prozentzahl der Gesamtvermögensanlagen per 31.12.2023. Verwende ausschliesslich den tatsächlichen Bestand (nicht Strategie) und berücksichtige nur die Spalte für 31.12.2023.  
+**Ignoriere alle Angaben aus Tabellen nach BVV2** (z. B. mit Titeln wie „Anlagekategorien gemäss BVV2“, „BVV2-Begrenzungen“, „Art. 55“ oder ähnlich). Diese zeigen regulatorische Limiten, nicht die ökonomische Sichtweise.
+
+Beachte folgende Schreibweisen:  
+- 25.0 mit „in %“ im Titel → entspricht 0.25  
+- 25.0 % → ebenfalls 0.25  
+- 0.25 → bleibt 0.25
+
+3. Aufgabe:  
+Gib ausschliesslich die Aktienquote per 31.12.2023 als Dezimalzahl zurück – ohne Prozentzeichen, Einheit oder erklärenden Text. Behalte Dezimalstellen bei, falls vorhanden.
+
+---
+
+Chain-of-Thought (explizites Vorgehen):  
+- Suche nach einer Tabelle zur Vermögensaufteilung nach Anlagekategorien
+- Ignoriere alle Tabellen mit Bezug zu BVV2 oder regulatorischen Limiten (z. B. Art. 55)
+- Identifiziere Einträge wie „Aktien Schweiz“, „Aktien Ausland“, „Aktien Welt“, „Actions suisses“, „Actions étrangères“, „Total Aktien“  
+- Ziehe nur die Spalte für den Stichtag 31.12.2023 heran  
+- Ignoriere strategische Zielbandbreiten oder Min/Max-Werte  
+- Wenn kein Total vorhanden ist, rechne alle Unterkategorien der Aktienanlagen (insbesondere „Aktien Schweiz“ + „Aktien Ausland“) zusammen  
+- Achte auf die korrekte Interpretation der Prozentangabe  
+- Gib nur die finale Zahl im Dezimalformat zurück
+
+---
+
+Beispiel 1: Tabelle mit explizitem Total 
+|Anlagekategorie|Stand 31.12.2023 (in %)| 
+|---|---|
+|Total Aktien|25|  
+
+Antwort: 0.25
+
+Beispiel 2: Tabelle ohne explizites Total  
+|Anlagekategorie|CHF|% (31.12.2023)|  
+|---|---|---|  
+|Aktien Schweiz|88'523'625.91|7.3|  
+|Aktien Ausland|151'579'725.87|12.4|  
+
+Berechnung: 7.3 + 12.4 = 19.7  
+Antwort: 0.197
+

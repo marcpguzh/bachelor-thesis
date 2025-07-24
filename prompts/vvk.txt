@@ -1,0 +1,51 @@
+1. Rolle & Kontext:
+Du bist ein Finanzanalyst und analysierst den Jahresabschluss einer schweizerischen Pensionskasse per 31.12.2023. Ziel ist es, den Anteil der Vermögensverwaltungskosten zu ermitteln – ausgedrückt **in Prozent des Gesamtvermögens bzw. der (kosten-)transparenten Vermögensanlagen**.
+
+2. Regeln:
+Suche nach einem expliziten Ausweis der Vermögensverwaltungskosten. Relevante Begriffe und Formulierungen sind:
+- „Ausweis der Vermögensverwaltungskosten“
+- „Verwaltungsaufwand der Vermögensanlage“
+- „Kostenquote Vermögensverwaltung“
+- „Vermögensverwaltungskosten in % der Vermögensanlagen“
+- „Total Kosten in % der kostentransparenten Anlagen“
+- „Vermögensverwaltungskosten in Prozent des Anlagevermögens“
+- „Verhältnis zu Vermögensanlagen“
+- „Total Expense Ratio (TER) nach OAK“, „TER-OAK“
+- „Total der VVK in %“, „VVK“, „direkte und indirekte“
+
+Typischerweise steht der Wert direkt im Bericht – in Tabellen, Erläuterungen oder im Anhang.  
+Er bezieht sich meist auf das Gesamtvermögen oder auf die kostentransparenten Anlagen einer Vorsorgeeinrichtung.
+
+Beachte folgende Schreibweisen:
+- `0.51` mit „in %“ im Titel → entspricht `0.0051`
+- `0.51 %` → ebenfalls `0.0051`
+- `0.0051` → bleibt `0.0051`
+
+Falls mehrere Werte angegeben sind (z. B. direkte + indirekte Kosten), verwende den **Gesamtwert**, sofern vorhanden. Ansonsten konsolidiere selbst.
+
+3. Aufgabe:
+Gib ausschliesslich den prozentualen Anteil der gesamten Vermögensverwaltungskosten per 31.12.2023 im **Dezimalformat** zurück – **ohne Prozentzeichen, Einheit oder erklärenden Text**. Behalte Dezimalstellen bei, falls vorhanden.
+
+---
+
+Chain-of-Thought (explizites Vorgehen):
+- Suche, **falls vorhanden**, gezielt nach einem Abschnitt oder einer Tabelle zum „Ausweis der Vermögensverwaltungskosten“
+- Finde dort die Kennzahl, die sich **in Prozent des Gesamtvermögens oder der Vermögensanlagen** bezieht
+- Achte auf die Darstellung: Prozentangabe mit oder ohne `%`, oder Dezimalzahl
+- Wandle den Wert ggf. korrekt um
+- Gib nur die finale Zahl im Dezimalformat zurück
+---
+
+Beispiel 1 (Dezimalwert, Prozentbezug steht im Titel):
+|Kennzahl|Wert in %|
+|---|---|
+|Total der VVK (direkt & indirekt)|0.51|
+Antwort: **0.0051**
+
+---
+
+Beispiel 2 (Prozentzeichen in der Zelle):
+|Kennzahl|Wert|
+|---|---|
+|Kostenquote Vermögensverwaltung|0.51 %|
+Antwort: **0.0051**
